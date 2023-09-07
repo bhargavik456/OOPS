@@ -278,8 +278,161 @@ public class BankingService {
 
 package ---> folders
 
+Day 2
+
+Recap:
+Object
+state and behaviour
+instance variable [ heap area], instance methods
+
+class member --> static
+static variables --> Metaspace
+static methods --> invoke with  class context [no implicit "this"]
+
+constructors
+* same name as that of class
+* no explicit return type
+* can be overloaded
+
+toString() --> object method, className + hashCode
+
+===================
+
+Relatioship between objects
+* Generalization and Specialization
+* Realization
+* Association
+* Uses A
+
+Java Tools:
+* Checkstyle
+  Naming Conventions --> CamelCase
+  Constants --> we use SNAKE CASE
+  final int MAX_AGE = 100
+
+  comments
+  // single
+  /*
+    multiline
+  */
+
+  /**
+    API comments
+  */
+* PMD / findBugs / spotBugs ==> Coding Stds
+ * unreachable code
+ * empty blocks, empty catch statements, resources not released...
+
+* SONARQube
+
+* Maven / Gradle --> Dependency Management
+
+* Jenkins --> CI / CD pipeline
+
+* JUnit / TestNG --> Unit testing framework
+
+* Git
+
+-------
+
+Generalization and Specialization
+
+``` 
+    How methods behave:
+    // implicitly extends [ inheritance ] from java.lang.Object
+    public class Product {
+       public double getPrice() {
+            return 100;
+       }
+       public String getName() {
+        return "P1";
+       }
+    }
+
+    public class Mobile extends Product {
+       public double getPrice() {
+            return 999;
+       }
+
+       public String getConnectivity() {
+            return "4G";
+       }
+    }
+
+   Product p = new Mobile();
+   p.getName();
+   p.getPrice();
+   p.getConnectivity();
+
+p instanceof Object ==> true
+p instanceof Product ==> true
+p instanceof Mobile ==> true
+p instanceof Tv ==> false
+
+(p.getClass() == Tv.class) ==> true
+(p.getClass() == Product.class) => false
+
+p.m();
 
 
 
+m.invoke(p);
 
+Java doesn't support multiple inheritance
+
+class A extends B, C {} // ERROR
+
+Task 1:
+
+class Time {
+    hours, min
+    // 
+}
+
+class TimeExample {
+    public static void main(String[] args) {
+        Time t1 = new Time(3,45);
+        Time t2 = new Time(2,30);
+
+        Time t3 = Time.add(t1, t2);
+
+        s.o.p(t1.getHours() + " : " + t1.getMin()); // 3 : 45
+        s.o.p(t2.getHours() + " : " + t2.getMin()); // 2 : 30
+        s.o.p(t3.getHours() + " : " + t3.getMin()); // 6 : 15        
+    }
+}
+```
+
+Person
+    firstName
+    lastName
+
+    constructors
+    getters
+    setters
+
+    boolean isOutstanding()
+Student extends Person
+    course
+    gpa
+     constructors
+    getters
+    setters
+
+    boolean isOutstanding()  GPA > 8.0
+
+Faculty extends Person
+    subject
+    rating
+
+    constructors
+    getters
+    setters
+
+     boolean isOutstanding()  rating > 4.25
+
+main()
+create array of persons [ 3 ]
+list outstanding persons
+Use Method to print all details
 
