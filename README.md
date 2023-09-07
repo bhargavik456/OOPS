@@ -438,3 +438,46 @@ list outstanding persons
 Use Method to print all details
 
 ```
+Realization Relationship --> using interface
+
+* One Component/element will realize the behaviour specified by other
+
+public interface EmployeeDao {
+    void addEmployee(Employee e); // public and abstract by default
+    Employee getEmployee(int id);
+}
+
+public class EmployeeDaoRdbms implements EmployeeDao {
+    // ...
+    public void addEmployee(Employee e) {
+        INSERT
+    }
+    public Employee getEmployee(int id) {
+        SELECT
+    }
+}
+
+
+public class EmployeeDaoMongodb implements EmployeeDao {
+    // ...
+    public void addEmployee(Employee e) {
+        db.employees.insert(...);
+    }
+    public Employee getEmployee(int id) {
+        db.employees.find({id:id})
+    }
+}
+
+public class AppService {
+    EmployeeDao empDao = new EmployeeDaoMongodb();
+}
+
+Why program to interface?
+1) DESIGN
+2) IMPLEMENTATION
+3) TESTING
+4) INTEGRATION
+5) LOOSE COUPLING
+
+
+Plants[] getPlants(String season);
