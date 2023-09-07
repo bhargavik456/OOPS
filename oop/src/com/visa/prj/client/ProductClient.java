@@ -9,12 +9,12 @@ import com.visa.prj.entity.Tv;
 public class ProductClient {
 
 	public static void main(String[] args) {
-		Product[] products = new Product[5]; // Array of Pointers
+		Product[] products = new Product[4]; // Array of Pointers
 		products[0] = new Mobile(345, "iPhone 14", 89000.00, "4G"); // up casting
 		products[1] = new Tv(42, "Onida KyThunder", 3500.00, "CRT"); // up casting
 		products[2] = new Tv(62, "Sony Bravia", 2_35_000.00, "OLED");
 		products[3] = new Mobile(922, "Samsung Fold", 129000.00, "4G");
-		products[4] = new Product(988, "Dummy", 0.00);
+//		products[4] = new Product(988, "Dummy", 0.00);
 		printExpensive(products);
 
 		printDetails(products);

@@ -12,7 +12,7 @@ public class Mobile extends Product {
 	}
 
 	public String getConnectivity() {
-		return connectivity;
+		return this.connectivity;
 	}
 
 	public void setConnectivity(String connectivity) {
