@@ -401,7 +401,8 @@ class TimeExample {
         s.o.p(t3.getHours() + " : " + t3.getMin()); // 6 : 15        
     }
 }
-```
+
+Task 2:
 
 Person
     firstName
@@ -436,3 +437,4 @@ create array of persons [ 3 ]
 list outstanding persons
 Use Method to print all details
 
+```
