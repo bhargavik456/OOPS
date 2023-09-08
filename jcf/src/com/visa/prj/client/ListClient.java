@@ -31,6 +31,13 @@ public class ListClient {
 			System.out.println(p); // toString() @Data
 		}
 		System.out.println("****");
+		
+		Collections.sort(products, (p1, p2) -> p1.getName().compareTo(p2.getName())); // Comparator
+		System.out.println("****");
+		for (Product p : products) {
+			System.out.println(p); // toString() @Data
+		}
+		System.out.println("****");
 	}
 
 }
