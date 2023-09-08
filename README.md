@@ -562,6 +562,35 @@ Arrays.sort(products, comparator based on name of product);
 
 Arrays.sort(products, comparator based on price of product);
 
+=============
+
+High Order Functions:
+1) functions which accept function as argument
+2) function returns a function
+
+* treat function as first class member [ just like primitive and object]
+
+filter(predicateFn) {
+    result = [];
+        for every elem in elems
+            if(predicateFn(elem)) {
+                add elem into result
+            }
+        end for
+    return result;  
+}
+
+[3, 4, 8, 9 , 11, 20, 40, 12]
+
+e -> e % 2 == 0
+
+e -> e.category().equals("computer");
 
 
-https://codeshare.io/j0zde3
+java 8 streams contain pre-defined HOF
+https://rxmarbles.com/
+
+
+
+
+
