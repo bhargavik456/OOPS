@@ -481,3 +481,13 @@ Why program to interface?
 
 
 Plants[] getPlants(String season);
+
+=================
+
+DAY 3
+
+ {"Johnny", "George", "Angelina", "Scarlett", "Penelope", "Brad"}
+
+public interface Comparable {
+    public int compareTo(Object o);
+}
