@@ -555,6 +555,12 @@ Arrays
 Collections
 
 
+array of products in SortClient
+Arrays.sort(products); // sort by id
+
+Arrays.sort(products, comparator based on name of product);
+
+Arrays.sort(products, comparator based on price of product);
 
 
 
