@@ -1,6 +1,7 @@
 package com.visa.prj.util;
 
 public class Utility {
+	// OCP; closed for change, open for extension
 	public static void sort(Comparable[] elems) {
 		for (int i = 0; i < elems.length; i++) {
 			for (int j = i + 1; j < elems.length; j++) {

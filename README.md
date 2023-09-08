@@ -486,8 +486,76 @@ Plants[] getPlants(String season);
 
 DAY 3
 
- {"Johnny", "George", "Angelina", "Scarlett", "Penelope", "Brad"}
-
-public interface Comparable {
-    public int compareTo(Object o);
+Generics --> limited to Object type and not primitive
+```
+public class Rectangle <T> {
+    T width;
+    T breadth;
+    //
 }
+
+Rectangle<Integer> r1 = new Rectangle<>(4,5);
+Rectangle<Double> r2 = new Rectangle<>(1.2, 4.2);
+Rectangle<String> r3 = new Rectangle<>( "1inch", "3.4inches");
+
+
+Integer is a wrapper class for int
+
+int x  = 10;
+
+Integer iX = x; // auto-boxing
+
+int y = iX; // unboxing
+y++;
+```
+
+Java Collection Framework --> Data Containers
+
+array is a data container
+* interfaces
+* implementation classes
+* Algorithm / Utility
+
+
+List interface:
+* ordered
+* duplicates are allowed
+* supports index based operation
+    get(10); remove(3); ...
+* re-order is allowed
+
+====
+
+ArrayList list = new ArrayList(); // avoid this, program to interface
+
+List list = new ArrayList(); // avoid this, use generics --> Type Safe
+list.add("A");
+list.add(new Date());
+list.add(34);
+
+if( list.get(i) instanceof String) {
+    String s = (String)list.get(i);
+}
+
+List<String> list = new ArrayList<>();
+list.add("A");
+list.add(new Date()); // ERROR
+
+String s = list.get(i);
+
+Comparable : logic is part of object itself
+
+Comparator: logic for comparision is part of client
+
+
+
+
+Arrays
+
+Collections
+
+
+
+
+
+
