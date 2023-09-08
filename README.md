@@ -570,12 +570,10 @@ High Order Functions:
 
 * treat function as first class member [ just like primitive and object]
 
-filter(predicateFn) {
+map(transformFn) {
     result = [];
         for every elem in elems
-            if(predicateFn(elem)) {
-                add elem into result
-            }
+           add transformFn(elem) to result
         end for
     return result;  
 }
@@ -590,7 +588,24 @@ e -> e.category().equals("computer");
 java 8 streams contain pre-defined HOF
 https://rxmarbles.com/
 
+List<Integer> data = Arrays.asList(55,1,66,10,34, 66);
 
 
 
+HOF:
+PART A : intermediary functions
+1) filter
+2) map
+3) flatMap
+4) skip
+5) limit
+
+PART B : terminal functions
+6) forEach
+7) reduce
+8) collect
+
+https://www.classmarker.com/online-test/start/?quiz=qma64faca669eccf
+ 
+ 
 

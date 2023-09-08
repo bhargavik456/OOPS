@@ -1,7 +1,9 @@
 package com.visa.prj.client;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import com.visa.prj.entity.Product;
 
@@ -19,6 +21,26 @@ public class StreamClient {
 		products.stream()
 			.filter(p -> p.getCategory().equals("computer"))
 			.forEach(p -> System.out.println(p));
+		
+		
+		products.stream().map(p -> p.getName()).forEach(System.out::println); // Method reference
+		
+		System.out.println("******");
+		
+		double total = products.stream()
+		//	.filter(p -> p.getCategory().equals("computer"))
+			.map(p -> p.getPrice())
+			.reduce(0.0,(v1,v2) -> v1 + v2);
+		
+		System.out.println(total);
+		
+		System.out.println("*****");
+		
+		List<Product> computers = products.stream()
+				.filter(p -> p.getCategory().equals("computer"))
+				.collect(Collectors.toList());
+		
+		
 	}
 
 }
