@@ -726,7 +726,44 @@ productList.put("tv", Arrays.asList(new Product(86, "Sony", 456666.22), new Prod
 TreeMap --> won't use hashCode() and equals(). Rather uses Comparable or Comparator to identity duplicates and ordering.
 TreeMap is a sorted map [ sorts and stores based on KEY]
 
-=====
-
 Set is a data container with unique elements, unlike List it is not ordered, can't re-order, can't use index based operation
 
+========================
+Docker should be working
+
+Exception Handling
+Exception: Abnormal condition that arises in application while execution[ Runtime ]
+
+Exception is an Object:
+1) What went wrong?
+2) Why?
+3) Where?
+
+Exceptions/ Throwable are of type "Exception" or "Error" type
+
+Error Type --> Can't provide solution while application is running
+Exception type of Exception -> can provide alternate path
+
+```
+Exception types are again classified as
+1) Checked type of exceptions
+    these types of exceptions occur due to reasons outside of JRE.
+    Since Exception has already occured in database / filesystem, etc which is propagated to application.
+    Compiler --> enforces you to handle ==> try / catch
+2) Unchecked type of exceptions
+    exceptions like "ArithmeticException", "NullPointerExcetion", "ArrayIndexOutOfBoundsExceptions", ..
+    which occur  due to reasons with JRE are unchecked exceptions.
+    These exceptions without try / catch --> compiler compiles
+
+    Note: These exceptions are supposed to be handled using conditional statements
+
+    public void addProduct(Product p) {
+        if(p != null) {
+            // logic
+        }
+    }
+
+    if( y != 0) {
+        res = x / y; 
+    }
+```
