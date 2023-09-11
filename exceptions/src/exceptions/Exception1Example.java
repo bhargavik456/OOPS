@@ -11,8 +11,10 @@ public class Exception1Example {
 	private static void doTask() {
 		int x = 10;
 		int y = 0;
-		int res = x / y;
-		System.out.println(res);
+		if( y != 0) {
+			int res = x / y;
+			System.out.println(res);
+		}
 	}
 
 }

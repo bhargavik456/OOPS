@@ -767,3 +767,73 @@ Exception types are again classified as
         res = x / y; 
     }
 ```
+
+Exception handling syntax has;
+Example: i need to read from file and upload the contents to database
+```
+try {
+    // actual code / logic
+} catch(SQLException ex) {
+    // handle
+} catch(IOException ex) {
+    // handle
+} catch(SecurityException ex) {
+    // handle
+}
+
+```
+"finally" block is a compulsory execute code; executes if exception occurs or not
+--> Release resources like "db connection", "socket connection", "file close"
+```
+try {
+    // line 1
+    // line 2
+    // line 3
+} catch(SQLException ex) {
+    // handle
+} catch(IOException ex) {
+    // handle
+} catch(SecurityException ex) {
+    // handle
+} finally {
+    close file
+    close database
+}
+```
+=================================
+Database and Maven
+
+Maven / Gradle
+Maven is a build automation tool used primarily for Java projects. 
+* Manage dependencies [ 3rd party libraries in project]
+* Run run goals / compile, test, deploy ==> automated
+* publish your module to repo
+
+Maven brings in standard for java projects ==> easy to use different IDEs 
+
+pom.xml ==> Project Object Model
+
+<dependencies>
+    <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <version>1.18.28</version>
+    </dependency>
+</dependencies>
+
+pom.xml
+1) dependencies
+2) goals
+
+settings.xml
+1) local repository
+2) remote repo
+3) central repo
+
+=========================
+
+
+
+
+
+
