@@ -813,6 +813,8 @@ Maven brings in standard for java projects ==> easy to use different IDEs
 
 pom.xml ==> Project Object Model
 
+```
+
 <dependencies>
     <dependency>
         <groupId>org.projectlombok</groupId>
@@ -820,7 +822,7 @@ pom.xml ==> Project Object Model
         <version>1.18.28</version>
     </dependency>
 </dependencies>
-
+```
 pom.xml
 1) dependencies
 2) goals
