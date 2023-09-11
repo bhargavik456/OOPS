@@ -713,3 +713,20 @@ if both have same content --> overwrite the value.
 if equals() returns false --> use linked hashing
 
 
+====
+
+Map<String, List<Product>> productList = new HashMap<>();
+
+productList.put("mobiles", Arrays.asList(new Product(25, "iPhone", 56666.22), new Product(45, "OnePlus", 89000.00)));
+
+productList.put("tv", Arrays.asList(new Product(86, "Sony", 456666.22), new Product(881, "Samsung", 119000.00)));
+
+==========
+
+TreeMap --> won't use hashCode() and equals(). Rather uses Comparable or Comparator to identity duplicates and ordering.
+TreeMap is a sorted map [ sorts and stores based on KEY]
+
+=====
+
+Set is a data container with unique elements, unlike List it is not ordered, can't re-order, can't use index based operation
+
