@@ -834,8 +834,86 @@ settings.xml
 
 =========================
 
+docker is a Virtual machine with containers
+
+container => Running application of a image [ software ]
 
 
+=====================================================================
+
+Java Concurrency
+Multi-threaded application
+
+* Process --> Program in execution
+Every program needs a unit of work executing ---> Thread
+
+Process withmore than one unit of work ==> Multi threaded
+
+Single Threaded: Notepad
+
+MultiThreaded : Eclipse, Word, Browser, ...
+
+Multi threaded application uses:
+1) avoids starvation
+2) Optimization of using resources
+
+JVM and Threads
+
+Java and Threads:
+1) Runnable interface
+```
+interface Runnable {
+    void run();
+}
+
+public class GrammerCheck implements Runnable {
+    // state
+    // behaviour
+
+    public void run() {
+
+    }
+}
 
 
+public class SpellCheck implements Runnable {
+    // state
+    // behaviour
 
+    public void run() {
+
+    }
+}
+```
+
+2) Thread class
+to manage life-cycle of thread
+a) start()
+b) yield()
+c) sleep(long ms)
+d) interrupt()
+
+Deprecated methods
+e) stop()
+f) suspend()
+g) resume()
+
+Object methods to control threads:
+a) wait()
+b) notify()
+c) notifyAll()
+
+Thread t1 = new Thread(new SpellCheck());
+Thread t2 = new Thread(new GrammerCheck());
+
+t2.start();
+
+Mac / Windows are Pre-emptive OS
+
+Solaris --> Non Pre-emptive OS
+
+while(employee exists) {
+    update employee BASIC
+    update employee HRA
+    Thread.currentThread().yield();
+}
