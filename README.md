@@ -605,7 +605,111 @@ PART B : terminal functions
 7) reduce
 8) collect
 
-https://www.classmarker.com/online-test/start/?quiz=qma64faca669eccf
- 
- 
+Day 4
+
+Recap
+Comparable vs Comparator interfaces
+
+Comparator: Anonymous class / Lambda expression
+
+Lambda expression is valid for Functional Interface [ interface where only one method has to be implemented]
+
+interface Computation {
+    int compute(int x , int y);
+}
+
+// Anonymous class
+Computation c1 = new Computation() {
+    public int compute(int x , int y) {
+        return x  + y;
+    }
+};
+
+// lamda 
+Computation c2 = (int x , int y) -> {
+        return x  + y;
+    };
+
+Type Inference: 
+Computation c2 = (x, y) ->  x  * y;
+
+----
+
+Arrays: --> utilities like sort, max, min, binerySearch, .. which can be used on [] type of datacontainer, provided data is primitive or Objects stored implements Comparable interface
+Or we can use Comparator in the client
+
+Collection
+Set, Queue and List extends Collection interface.
+
+List interface
+ArrayList / LinkedList / Apache Collections / VAVR, .. implementations of List interface
+
+Collections -> utilities like sort, max, min, binarySearch, .. which can be used on List type of datacontainer, provided data is primitive or Objects stored implements Comparable interface
+Or we can use Comparator in the client
+
+-----
+
+Java 8 streams supports HOF.
+
+Intermediary functions:
+1) map()
+2) filter()
+3) flatMap()
+4) skip()
+5) limit()
+
+Terminal functions:
+1) collect()
+2) forEach()
+3) reduce()
+
+products.stream().filter(predicateFn).map(transformFn).reduce(aggregateFn);
+
+products.stream().map(transformFn).filter(predicateFn).collect(Collectors.toList());
+
+products.stream().limit(20).map(transformFn).filter(predicateFn).forEach(consumerFn);
+
+==============
+
+Map
+is a container which stores the data in key/value pairs
+
+* Dictionary
+* Registry
+
+Hashtable [ legacy], HashMap, TreeMap, LinkedHashMap,.. ==> implementations of Map interface
+
+Hash based datacontainers uses hashCode() and equals() for identifying duplicates and decide the position in datacontainer
+
+HashStory:
+1) 2 similiar objects has to have the same hashcode
+2) not similar objects can also have same hashcode [ possibility]
+
+public class Rectangle {
+    width; breadth;
+
+    public int hashCode() {
+        return width * breadth;
+    }
+}
+
+Rectangle r1 = new Rectangle(4, 5); // 20
+Rectangle r2 = new Rectangle(5, 4); // 20
+Rectangle r3 = new Rectangle(10, 2); // 20
+Rectangle r4 = new Rectangle(2, 10); // 20
+Rectangle r5 = new Rectangle(20, 1); // 20
+// collisions
+
+String s1 = new String("Hello"); 
+is different from
+String s1 = "Hello"; // literal --> String pool
+
+====
+
+* Hash based containers invoke hashCode()
+* hashCode() % size of buckets --> decides where data is placed and to find duplicate.
+* if hashCode() collides, invoke equals() to check if both have same content or not.
+if both have same content --> overwrite the value.
+if equals() returns false --> use linked hashing
+
 

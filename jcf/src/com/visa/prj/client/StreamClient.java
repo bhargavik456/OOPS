@@ -1,7 +1,6 @@
 package com.visa.prj.client;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -40,7 +39,7 @@ public class StreamClient {
 				.filter(p -> p.getCategory().equals("computer"))
 				.collect(Collectors.toList());
 		
-		
+		computers.forEach(System.out::println);
 	}
 
 }
