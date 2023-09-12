@@ -15,6 +15,7 @@ public class Account {
 		bal += amt;
 		System.out.println(name + " setting balance :" + bal);
 		setBalance(bal);
+		notifyAll();
 	}
 
 	public synchronized void withdraw(String name, double amt) {
