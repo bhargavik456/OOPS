@@ -45,7 +45,7 @@ docker run -p 3306:3306 -d --name local-mysql -e MYSQL_ROOT_PASSWORD=Welcome123 
 
 c) CONNECT TO A MYSQL RUNNING CONTAINER:
 
-$ docker exec -t -i local-mysql bash
+$ docker exec -it  local-mysql bash
 
 d) Run MySQL client:
 
@@ -973,7 +973,121 @@ Immutable Objects : Thread Safe ==> Heap area
 static variables : Metaspace --> shared by threads --> Not Safe
 instance variables: heap -> shared by threads --> not safe
 
+synchronized method
+```
+public class BankingService {
 
+    public void transferFunds(Account fromAcc, AccountTo, double amt) {
 
+        synchronized(fromAcc) {
+            synchronized(toAcc) {
+                fromAcc.withdraw(amt);
+                toAcc.deposit(amt);
+        }
+        }
+    }
+}
 
+// class level lock --> Static data lock
+public synchronized static void doTask() {
 
+}
+```
+
+ArrayList and LinkedList ==> Not Thread Safe 
+Vector , Stack ==> methods are Synchronized
+
+```
+
+List<String> list = new ArrayList<>();
+
+synchronized(list) {
+
+}
+
+List<String> list = new ArrayList<>();
+List<String> list2 =  Collections.synchronizedList(list);
+
+===
+
+List<String> list = new CopyOnWriteArrayList();
+list.add("A");
+list.add("B");
+
+Map<String,Double> map = ConcurrentHashMap<>(100, 0.7f, 10);
+
+Segments: 2 pow x > 10
+
+2 pow 4 ==> 16 segments
+
+```
+
+Docker
+Docker is a set of platform as a service products that use OS-level virtualization to deliver software in packages called containers. 
+
+```
+
+banuprakash@Banuprakashs-MacBook-Pro VISA_JAVA % docker exec -it  local-mysql bash
+bash-4.4# mysql -u root -p
+Enter password: 
+
+mysql> create database VISA_DB;
+
+mysql> use VISA_DB;
+mysql> create table products(id int PRIMARY KEY AUTO_INCREMENT, name VARCHAR(100), price double, quantity int);
+
+```
+
+JDBC --> Java Database Connectivity
+
+JDBC provides interfaces; implementation classes are provided by database vendors
+
+Steps:
+
+1) load drivers provided by database vendors
+Class.forName("driverClassName");
+
+com.mysql.jdbc.cj.Driver
+oracle.jdbc.Driver
+
+2) Establish Connection to Database
+
+Connection con = DriverManager.getConnection(URL, USER, PWD);
+
+jdbc:mysql://localhost:3306/VISA_DB
+jdbc:oracle:thin:@localhost:1521:VISA_DB
+
+3) Interact with database
+3.1) Statement
+SQL is fixed
+"select * from products"
+
+3.2) PreparedStatement
+depends on IN parameter
+
+"select * from products where id = ?"
+
+insert into products values (0, ?, ?, ?);
+
+3.3) CallableStatement
+StoredProcedure
+
+DELIMITER //
+CREATE PROCEDURE sp_GetMovies()
+BEGIN
+    select title,description,release_year,rating from film;
+END //
+    
+DELIMITER ;
+
+Java:
+
+call sp_GetMovies()
+
+4) ResultSet
+    The object of ResultSet maintains a cursor pointing to a row of a table. Initially, cursor points to before the first row.
+
+5) finally block close connection
+
+ResultSet executeQuery(); // SELECT
+int executeUpdate(); // INSERT, DELETE and UPDATE
