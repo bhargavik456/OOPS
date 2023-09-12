@@ -917,3 +917,63 @@ while(employee exists) {
     update employee HRA
     Thread.currentThread().yield();
 }
+
+Day 5
+
+interface Runnable {
+    void run();
+}
+
+Thread t = new Thread();
+t.start();
+
+public class TransactionThread implements Runnable {
+    ..
+    public void run() {
+
+    }
+}
+
+public class TransactionThread extends Thread {
+    ..
+    public void run() {
+
+    }
+}
+
+====================
+
+```
+public class TransactionThread implements Runnable {
+    //
+
+    @Override
+	public void run() {
+		if(TransactionType.CREDIT == type) {
+			account.deposit(name, amt);
+		} else if(TransactionType.DEBIT == type) {
+			account.withdraw(name, amt);
+		}
+	}
+}
+
+Thread t1 = new Thread();
+t1.start();
+
+Thread t1 = new Thread(new TransactionThread());
+t1.start();
+
+```
+
+Thread Safety:
+a member is thread safe if it doesn't get corrupted in mult-threaded environment
+
+Local variable: Thread Safe --> Stack
+Immutable Objects : Thread Safe ==> Heap area
+static variables : Metaspace --> shared by threads --> Not Safe
+instance variables: heap -> shared by threads --> not safe
+
+
+
+
+
