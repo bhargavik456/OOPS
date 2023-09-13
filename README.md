@@ -1113,4 +1113,34 @@ https://mvnrepository.com/
 folder of Project> mvn clean install
 
 ======
-    
+
+src/main/resources --> New -> file --> database.properties
+
+class PersistenceException extends Exception {
+    //
+}
+public class ProductDaoJdbcImpl implements ProductDao {
+    public void addProduct(Product p) throws PersistenceException {
+        try {
+
+        } catch(SQLException ex) {
+            log exception
+            throw new PersistenceException("Unable to add Product");
+        }
+    }
+}
+
+
+
+public class ProductDaoMongoImpl implements ProductDao {
+    public void addProduct(Product p) {
+        try {
+
+        } catch(MongoException ex) {
+            log exception
+            throw new PersistenceException("Unable to add Product");
+        }
+    }
+}
+
+
