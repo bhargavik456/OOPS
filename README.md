@@ -1114,33 +1114,48 @@ folder of Project> mvn clean install
 
 ======
 
-src/main/resources --> New -> file --> database.properties
+Web application Development [HTTP protocol]
 
-class PersistenceException extends Exception {
-    //
+JavaEE --> Enterprise Application
+
+Servlet engines:
+Tomcat / Jetty / Netty
+```
+Deployment Descriptor: web.xml
+
+public class LoginServlet extends HttpServlet {
+
 }
-public class ProductDaoJdbcImpl implements ProductDao {
-    public void addProduct(Product p) throws PersistenceException {
-        try {
 
-        } catch(SQLException ex) {
-            log exception
-            throw new PersistenceException("Unable to add Product");
-        }
+web.xml
+<servlet>
+    <servlet-name>First</servlet-name>
+    <servlet-class> com.visa.prj.web.LoginServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+    <servlet-name>First</servlet-name>
+    <url-pattern>/login</url-pattern>
+</servlet-mapping>
+
+```
+Servlet 2.5+
+
+@WebServlet("/login")
+public class LoginServlet extends HttpServlet {
+    public void doGet(HttpServletRequest req, HttpServletResponse res) throws IOExcpetion, ServletException {
+        //
+    }
+
+    public void doPost(HttpServletRequest req, HttpServletResponse res) throws IOExcpetion, ServletException {
+        //
     }
 }
 
+HTTP methods: GET, POST, PUT, PATCH, DELETE, ..
 
 
-public class ProductDaoMongoImpl implements ProductDao {
-    public void addProduct(Product p) {
-        try {
+Engine needs data in "war" format
 
-        } catch(MongoException ex) {
-            log exception
-            throw new PersistenceException("Unable to add Product");
-        }
-    }
-}
-
+Web Archive [war]
 
