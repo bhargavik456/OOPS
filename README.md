@@ -1091,3 +1091,26 @@ call sp_GetMovies()
 
 ResultSet executeQuery(); // SELECT
 int executeUpdate(); // INSERT, DELETE and UPDATE
+
+======
+
+Day 6
+
+IntelliJ
+
+File --> New Project
+
+Name: db
+Location: Where projects reside [ workspace ]
+java
+Maven
++ Add SDK --> select JDK installed folder
+
+Add Dependencies:
+https://mvnrepository.com/
+
+
+folder of Project> mvn clean install
+
+======
+    
