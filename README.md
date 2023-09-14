@@ -1167,6 +1167,46 @@ JSP : Translation Phase --> gets converted to Servlet [ first time or any change
 Request Processing Phase -> make request to JSP, servlet is invoked
 
     public void _jspService(HttpServletRequest req, HttpServletResponse res) .. {
-        
+
     }
+
+```
+<%@ page import="java.util.List" %>
+<%@ page import="com.visa.prj.entity.Product" %>
+<%--
+  Created by IntelliJ IDEA.
+  User: banuprakash
+  Date: 14/09/23
+  Time: 11:23 am
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>Product List</title>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>PRICE</th>
+        </tr>
+        <%
+            List<Product> products = (List<Product>) request.getAttribute("products");
+            for(Product p : products) {
+        %>
+            <tr>
+                <td><%= p.getId() %></td>
+                <td><%= p.getName() %></td>
+                <td><%= p.getPrice() %></td>
+            </tr>
+        <%
+            }
+        %>
+    </table>
+</body>
+</html>
+
+```
 
