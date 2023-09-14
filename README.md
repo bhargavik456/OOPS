@@ -1210,3 +1210,28 @@ Request Processing Phase -> make request to JSP, servlet is invoked
 
 ```
 
+SSRedirection vs CSRedirection
+
+Session Tracking
+Http protocol is a stateless protocol
+
+Session Tracking is the capability given to web application to keep track of conversational state of client
+
+HttpSession API
+
+HttpSession ses = req.getSession(true);
+Create a session if not exists; get session if it exists
+
+
+HttpSession ses = req.getSession(false); // get session if it exists
+
+ses.invalidate(); // terminate the session --> logout
+
+ses.setMaxInactiveInterval(seconds); // default is 20 min or 30 min
+
+ses.setAttribute(key , value);
+
+ses.getAttribute(key);
+
+ses.removeAttribute(key);
+

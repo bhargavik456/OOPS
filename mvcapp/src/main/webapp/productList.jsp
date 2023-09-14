@@ -12,20 +12,28 @@
     <title>Product List</title>
 </head>
 <body>
+<h1>Welcome, ${user}</h1>
     <h1>Product List</h1>
+    <form action="addToCart.do" method="post">
     <table border="1">
         <tr>
             <th>ID</th>
             <th>NAME</th>
             <th>PRICE</th>
+            <th>Select</th>
         </tr>
         <c:forEach items="${products}" var="p">
             <tr>
                 <td>${p.id}</td>
                 <td>${p.name}</td>
                 <td>${p.price}</td>
+                <td><input type="checkbox" name="items" value="${p.id}"/> </td>
             </tr>
         </c:forEach>
     </table>
+        <button type="submit">Add to Cart</button>
+    </form>
+<a href="cart.jsp">Cart</a>
+<a href="logout.do">Logout</a>
 </body>
 </html>
