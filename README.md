@@ -1159,3 +1159,14 @@ Engine needs data in "war" format
 
 Web Archive [war]
 
+mvn jetty:run
+
+
+JSP : Translation Phase --> gets converted to Servlet [ first time or any changes to JSP]
+
+Request Processing Phase -> make request to JSP, servlet is invoked
+
+    public void _jspService(HttpServletRequest req, HttpServletResponse res) .. {
+        
+    }
+
