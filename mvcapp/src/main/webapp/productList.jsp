@@ -12,6 +12,7 @@
     <title>Product List</title>
 </head>
 <body>
+
 <h1>Welcome, ${user}</h1>
     <h1>Product List</h1>
     <form action="addToCart.do" method="post">

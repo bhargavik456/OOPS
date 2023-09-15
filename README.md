@@ -1235,3 +1235,56 @@ ses.getAttribute(key);
 
 ses.removeAttribute(key);
 
+Day 8
+
+Web Server [ handles HTTP request and serve Static content / Load Balancer,..]
+
+Servlet engine / Web Container / Servlet Container ==> serve dynamic content genrated using Java
+
+Servlet engine manages life-cycle of objects
+* Servlet instances and maps it to URL [ Singleton]
+* Thread pool for handling requests 
+* creates Request and Response objects for every client request, destroyed once response is commited to client
+
+JakarataEE with "web" template, "java", "Maven" --> servlet api
+pom.xml --> jetty or tomcat plugin for embedded web container 
+
+Servlet --> Controller --> *.do
+Model -> Business Data and logic
+JSP ==> Views
+
+JSP 
+<%
+    scriptlets --> java statements
+%>
+
+<%= expression %> --> write output
+
+JSTL --> 
+
+<%@ taglib uri="" prefix="c">
+
+<c:forEach items="${products}" var="product">
+</c:forEach>
+
+========
+
+${user}
+
+* pageScope
+* requestScope
+* sessionScope
+* applicationScope
+
+JSP implicit objects:
+* page 
+* request --> HttpServletRequest
+* session --> HttpSession
+* application --> ServletContext
+* out ==> JSPWriter
+* param
+
+Listeners ==> invoked by Servlet Engine based on events
+* ServletContextListener
+* HttpSessionListener
+* HttpSessionAttributeListener
