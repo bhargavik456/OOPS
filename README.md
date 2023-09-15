@@ -1329,3 +1329,22 @@ response.addHeader("cache-Control", "private"); //IE5.x only;
   <url-pattern>*.do</url-pattern>
 </filter-mapping>
 ```
+
+Task 1:
+MultiStage Form Submission
+
+Task 2:
+    1) Context will have teams with passwords
+        "rcb", name, password
+        "Mumbai Indians", ...
+
+    2) Context has players
+        Player
+            id, name, skill, basePrice, sold [ boolean ]
+
+    3) Each team login
+        playerlist
+        once player is selected for a team, player is not availble for auction [ sold --> true]
+
+    4) 12 players for auction
+        3 teams are there --> each team can have ma of 4 players 
