@@ -15,8 +15,8 @@
 <a href="hello-servlet">Hello Servlet</a> <br />
 <a href="getProducts.do">Get Products</a> <br />
 <a href="productForm.jsp">Add Product</a> <br />
-<a href="cart.jsp">Cart</a>
-    <a href="logout.do">Logout</a>
+<a href="cart.jsp">Cart</a> <br />
+    <a href="chat.jsp">Chat</a> <br />
     <a href="logout.do">Logout</a>
 </body>
 </html>

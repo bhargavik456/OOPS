@@ -61,6 +61,14 @@ public class FrontController extends HttpServlet {
            }
            session.setAttribute("cart", cartItems);
            resp.sendRedirect("getProducts.do");
+       } else if (uri.endsWith("chat.do")) {
+           String msg = req.getParameter("msg");
+           HttpSession session = req.getSession(false);
+           String user = (String) session.getAttribute("user");
+           List<String> messages = (List<String>) req.getServletContext().getAttribute("messages");
+           messages.add(user + ":" + msg);
+           req.getServletContext().setAttribute("messages", messages);
+           resp.sendRedirect("chat.jsp");
        } else  if(uri.endsWith("logout.do")) {
            HttpSession ses = req.getSession(false);
            if(ses != null) {
