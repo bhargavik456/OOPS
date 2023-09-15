@@ -1288,3 +1288,44 @@ Listeners ==> invoked by Servlet Engine based on events
 * ServletContextListener
 * HttpSessionListener
 * HttpSessionAttributeListener
+
+JSP and Servlet are invoked using URL pattern --> Client makes a request
+
+Listeners ==> invoked by Servlet Engine based on events
+
+Filter ==> Interceptor pattern
+* common headers like [cache, cross-origin, locale ] for all pages
+
+```
+<%
+response.setIntHeader("max-age", 0); //IE only;
+response.setHeader("Cache-Control","no-cache"); //HTTP 1.1
+response.addHeader("Cache-Control","no-store");
+response.setHeader("Pragma", "no-cache"); //HTTP 1.0
+response.setIntHeader ("Expires", -1); //prevents caching at the proxy server
+response.addHeader("cache-Control", "private"); //IE5.x only;
+%>
+```
+* Security
+```
+    <%
+        Session ses = request.getSession();
+        if(ses.getAttribute("user") == null) {
+            response.sendRedirect("login.jsp");
+        }
+    %>
+```
+
+* Encrpty / decrpt, ..
+
+```
+<filter-mapping>
+  <filter-name>securityFilter</filter-name>
+  <url-pattern>*.jsp</url-pattern>
+</filter-mapping>
+
+<filter-mapping>
+  <filter-name>zipFilter</filter-name>
+  <url-pattern>*.do</url-pattern>
+</filter-mapping>
+```

@@ -13,9 +13,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 @WebServlet("*.do")
 public class FrontController extends HttpServlet {
@@ -67,6 +65,7 @@ public class FrontController extends HttpServlet {
            String user = (String) session.getAttribute("user");
            List<String> messages = (List<String>) req.getServletContext().getAttribute("messages");
            messages.add(user + ":" + msg);
+           Collections.reverse(messages);
            req.getServletContext().setAttribute("messages", messages);
            resp.sendRedirect("chat.jsp");
        } else  if(uri.endsWith("logout.do")) {
