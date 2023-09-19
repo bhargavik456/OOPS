@@ -1348,3 +1348,61 @@ Task 2:
 
     4) 12 players for auction
         3 teams are there --> each team can have ma of 4 players 
+
+
+1) We should have teams and players available for all users/teams
+
+class Team {
+    name,
+    username,
+    password,
+    budget
+    List<Player> players = new ArrayList<>();
+}
+
+class Player {
+    name,
+    skill,
+    basePrice,
+    sold
+}
+
+ContextListener
+    contextInitialized(SCE sce) {
+        List<Team> teams = new ArrayList<>();
+        teams.add(...);
+        ServletContext ctx = sce.getServletContext();
+        ctx.setAttribute("teams", teams);
+
+        List<Player> players = ..
+         ctx.setAttribute("players", players);
+    }
+
+2) team has to login
+    login.jsp --> login.do --> FrontController
+    place the team in HttpSession
+
+    redirect to listPlayers.jsp [ display available players]
+    Welcome RCB, available Budget: ....
+    Selected Players;
+    1,
+    2
+
+    Available Players:
+    P1 skill base_price [radio button]
+    P2 skill base_price [radio button]
+    P3 skill base_price [radio button]
+
+    TEXT BOX for BID Amount
+
+    Button "Select"
+
+    "addPlayer.do"
+    1) add selected player to "players" field of Team [  check max players, bid should be more than base_price, check budget]
+    2) remove "player" from "players" context attribute
+
+```
+Test Link:
+https://www.classmarker.com/online-test/start/?quiz=dmj6507cf61d5e84
+
+```
